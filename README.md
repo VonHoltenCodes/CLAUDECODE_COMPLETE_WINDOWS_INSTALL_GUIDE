@@ -28,6 +28,7 @@ This repository contains comprehensive guides for every aspect of Claude Code on
 
 ### Development Setup
 - [GitHub SSH Setup](docs/GITHUB_SSH.md) - Configure Git and SSH for GitHub
+- [WSL Git & GitHub Guide](docs/WSL_GIT_GITHUB_GUIDE.md) - Handle WSL-specific git issues and permissions
 
 ## 🎯 Key Points for Windows Users
 

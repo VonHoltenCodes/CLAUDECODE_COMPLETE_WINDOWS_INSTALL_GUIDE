@@ -1,5 +1,7 @@
 # Setting Up This Repository on GitHub
 
+**⚠️ IMPORTANT:** If you're using WSL (Windows Subsystem for Linux), you'll encounter permission errors with git. These are normal and don't prevent git from working. For a detailed guide on handling WSL-specific git issues, see [WSL Git & GitHub Guide](docs/WSL_GIT_GITHUB_GUIDE.md).
+
 Since we can't initialize git in the system32 directory, follow these steps:
 
 ## 1. Move the Repository
@@ -59,4 +61,21 @@ git add .
 git commit -m "Initial commit: Complete Claude Code Windows installation guide"
 git remote add origin git@github.com:VonHoltenCodes/CLAUDECODE_COMPLETE_WINDOWS_INSTALL_GUIDE.git
 git push -u origin main
+```
+
+## Common Issues & Solutions
+
+### Permission Errors in WSL
+If you see errors like:
+```
+error: chmod on .git/config.lock failed: Operation not permitted
+```
+This is NORMAL in WSL. Your git operations are still working! See [WSL Git & GitHub Guide](docs/WSL_GIT_GITHUB_GUIDE.md) for details.
+
+### Quick Fix for Most Issues
+```bash
+# Add repository as safe directory
+git config --global --add safe.directory $(pwd)
+
+# Retry your git command
 ```

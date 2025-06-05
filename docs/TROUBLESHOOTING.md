@@ -101,15 +101,35 @@ cd /mnt/c/Users/YourUsername/Documents
 claude
 ```
 
-### 8. Git operations failing
+### 8. Git operations failing in WSL
 **Error:**
 ```
 fatal: not a git repository
+error: chmod on .git/config.lock failed: Operation not permitted
+fatal: detected dubious ownership in repository
 ```
 
-**Cause:** System directories don't allow git initialization
+**Cause:** WSL filesystem permission mismatches and security features
 
-**Solution:** Work in user directories where you have full permissions
+**Solution:** 
+1. **For "dubious ownership":**
+   ```bash
+   git config --global --add safe.directory $(pwd)
+   ```
+
+2. **For chmod errors:** These are cosmetic - your git commands still work!
+   ```bash
+   git config --global core.filemode false
+   ```
+
+3. **For "not a git repository":** Ensure .git directory exists:
+   ```bash
+   ls -la .git/
+   # If missing, reinitialize:
+   git init -b main
+   ```
+
+**For detailed WSL git solutions, see:** [WSL Git & GitHub Guide](WSL_GIT_GITHUB_GUIDE.md)
 
 ### 9. Node.js version issues
 **Error:**
